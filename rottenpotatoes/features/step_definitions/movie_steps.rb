@@ -5,5 +5,5 @@ Given (/^the following movies exist:$/) do |table|
 end
 
 Then (/the director of "(.*?)" should be "(.*?)"/) do |movie, director|
-  expect(movie.director).to eq director
+  expect(Movie.find_by_title(movie).director).to eq director
 end
