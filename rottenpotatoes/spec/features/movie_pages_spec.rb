@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 describe "Movie Pages" do
-  before {@movie = Movie.create()}
+
+  before {@movie = Movie.create(title: "Star Wars", rating: "PG", director: "George Lucas", release_date:  "1977-05-25")}
 
   describe "edit pages" do
-    before {visit movie_edit_path(@movie)}
+    before {visit edit_movie_path(@movie)}
     it "should have a director field" do
-
+      expect(page).to have_field("director")
     end
   end
 
