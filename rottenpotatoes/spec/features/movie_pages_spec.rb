@@ -7,7 +7,7 @@ describe "Movie Pages" do
   describe "edit pages" do
     before {visit edit_movie_path(@movie)}
     it "should have a director field" do
-      expect(page).to have_field("director")
+      expect(page).to have_field("movie_director")
     end
   end
 
