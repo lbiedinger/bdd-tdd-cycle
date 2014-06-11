@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
 
   def self.same_director movie_id
     director = Movie.find(movie_id).director
-    return Movie.where(director: director) if director
+    return Movie.where(director: director) if director && !director.blank?
     []
   end
 end

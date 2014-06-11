@@ -16,11 +16,11 @@ class MoviesController < ApplicationController
     end
     @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
-    
+
     if @selected_ratings == {}
       @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
     end
-    
+
     if params[:sort] != session[:sort]
       session[:sort] = sort
       flash.keep
@@ -42,9 +42,9 @@ class MoviesController < ApplicationController
 
   def same_director
     @movies = Movie.same_director params[:id]
-    debugger
+    #debugger
     if @movies.count == 0
-      flash = "'#{Movie.find(params[:id]).title}' has no director info"
+      flash[:notice] = "'#{Movie.find(params[:id]).title}' has no director info"
       redirect_to root_path
     end
   end
