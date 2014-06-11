@@ -8,7 +8,7 @@ Given (/^(?:|I )am on the details page for "(.*?)"/) do |movie|
   visit movie_path(Movie.find_by_title(movie))
 end
 
-Then (/^(?:|I )should be on the Similar Movies page for "(.*?)"/) do |movie| 
+Then (/^(?:|I )should be on the Similar Movies page for "(.*?)"/) do |movie|
   expect(current_url).to eq same_director_url(Movie.find_by_title(movie))
 end
 
@@ -18,5 +18,5 @@ end
 
 
 Then (/^(?:|I )should be on the home page$/) do
-  expect(current_path).to eq '/'
+  expect(current_path).to eq '/movies'
 end

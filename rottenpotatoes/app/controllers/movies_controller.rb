@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
     #debugger
     if @movies.count == 0
       flash[:notice] = "'#{Movie.find(params[:id]).title}' has no director info"
-      redirect_to root_path
+      redirect_to movies_path
     end
   end
 
